@@ -1,20 +1,71 @@
-# ternssh Cloudflare Workers Template
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="web/public/logo-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="web/public/logo-light.png" />
+    <img src="web/public/logo-light.png" alt="ternssh logo" width="96" height="93" />
+  </picture>
+</p>
 
-Prebuilt deploy snapshot from [haradakashiwa/ternssh](https://github.com/haradakashiwa/ternssh) **v0.0.12**.
+<h1 align="center">ternssh</h1>
 
-Use this repository for Cloudflare Workers one-click deploy and Workers Builds. Frontend assets are already built; `npm run build` is a no-op.
+<p align="center">
+  SSH workspace on Cloudflare<br />
+  Draggable dashboard · Terminal · SFTP · Status monitoring
+</p>
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/haradakashiwa/ternssh-cloudflare-workers-template)
+<p align="center">
+  <a href="LICENSE">GPL-3.0-or-later</a>
+  ·
+  <a href="README.zh.md">中文</a>
+</p>
 
-## Workers Builds
+<p align="center">
+  <a href="https://deploy.workers.cloudflare.com/?url=https://github.com/haradakashiwa/ternssh-cloudflare-workers-template">
+    <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare" />
+  </a>
+</p>
 
-| Step | Command |
-|------|---------|
-| Build | `npm run build` |
-| Deploy | `npm run deploy` |
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/preview-dark.png" />
+    <source media="(prefers-color-scheme: light)" srcset="docs/preview-light.png" />
+    <img src="docs/preview-light.png" alt="ternssh dashboard preview" width="1024" />
+  </picture>
+</p>
 
-Ensure a remote D1 database named `ternssh` exists, or set `D1_DATABASE_ID` in build environment variables.
+---
 
-## Source
+**ternssh** is an SSH management tool that runs on Cloudflare Edge. Full documentation: **[Docs](https://ternssh.com/docs/home)**.
 
-Generated automatically from `haradakashiwa/ternssh` tag `v0.0.12`. Do not edit by hand.
+## Deployment
+
+### Docker quick start
+
+Using the prebuilt image (recommended):
+
+```bash
+docker run -d \
+  --name ternssh \
+  -p 8787:8787 \
+  -v ternssh-data:/app/.wrangler \
+  --restart unless-stopped \
+  ghcr.io/haradakashiwa/ternssh:latest
+```
+
+Or with Docker Compose:
+
+```bash
+docker compose -f docker-compose.ghcr.yml up -d
+```
+
+Build from source:
+
+```bash
+docker compose up -d --build
+```
+
+Open http://localhost:8787 after startup. To enable Cloudflare Access authentication, set the `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` environment variables.
+
+### Cloudflare Workers
+
+See the [deployment guide](https://ternssh.com/docs/deployment) for details.

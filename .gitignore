@@ -1,4 +1,11 @@
 node_modules/
 .wrangler/
-wrangler.production.jsonc
+dist/
+*.log
+.env
+.env.*
+!.env.example
 .dev.vars
+wrangler.production.jsonc
+.DS_Store
+cloudflare-template/

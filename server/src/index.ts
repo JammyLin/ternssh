@@ -9,7 +9,6 @@ import {
 import { ensureDefaultUser } from "./db/users";
 import { SshSession } from "./do/ssh-session";
 import { dashboardRoutes } from "./routes/dashboards";
-import { aiRoutes } from "./routes/ai";
 import { authRoutes } from "./routes/auth";
 import { meRoutes } from "./routes/me";
 import { onboardingRoutes } from "./routes/onboarding";
@@ -106,7 +105,6 @@ v1.route("/saved-passwords", savedPasswordRoutes);
 v1.route("/saved-private-keys", savedPrivateKeyRoutes);
 v1.route("/dashboards", dashboardRoutes);
 v1.route("/sessions", sessionRoutes);
-v1.route("/ai", aiRoutes);
 
 app.route("/api/v1", v1);
 
