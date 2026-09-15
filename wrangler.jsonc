@@ -9,11 +9,12 @@
     "enabled": true,
     "head_sampling_rate": 1
   },
+  // Do not put vars/secrets here — set them in the Cloudflare dashboard so deploys do not overwrite them.
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "ternssh",
-      "database_id": "local-ternssh-db",
+      "database_id": "__D1_DATABASE_ID__",
       "migrations_dir": "server/migrations"
     }
   ],
